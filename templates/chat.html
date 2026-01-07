@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>EduGPT Chat</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>EduGPT – Education AI</h2>
+<a href="/logout">Logout</a><br><br>
+
+<textarea id="question" placeholder="Ask your question"></textarea><br>
+<button onclick="send()">Send</button>
+
+<pre id="response"></pre>
+
+<script>
+function send() {
+    fetch("/api/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            question: document.getElementById("question").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("response").innerText = data.answer;
+    });
+}
+</script>
+
+</body>
+</html>
