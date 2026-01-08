@@ -28,6 +28,13 @@ h2 {
     margin-bottom: 20px;
     color: #333;
 }
+h2{
+    
+    padding-bottom: 280px;
+    text-align: right;
+    
+
+}
 
 /* Input Fields */
 input {

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from education import EducationAI
-from user import register_user, login_user
+from database import register_user, login_user
 
 app = Flask(__name__)
 app.secret_key = "edugpt_secret"
@@ -38,7 +38,7 @@ def register():
 def chat():
     if "user" not in session:
         return redirect(url_for("login"))
-    return render_template("chat.html")
+    return render_template("dashboard.html")
 
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
